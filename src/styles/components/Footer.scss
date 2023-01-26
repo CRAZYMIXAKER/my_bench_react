@@ -1,0 +1,41 @@
+.footer {
+  background-color: rgb(14, 13, 16);
+  padding: 40px 0;
+
+  &-main {
+    -webkit-box-pack: justify;
+    display: flex;
+    flex-direction: row;
+    gap: 0 20px;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1360px;
+    padding: 0 20px;
+
+    .logo:hover {
+      cursor: pointer;
+    }
+
+    .information {
+      column-gap: 30px;
+      display: flex;
+
+      &-link {
+        color: rgb(255, 255, 255);
+        font-family: "DM Sans", sans-serif;
+        line-height: 24px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .copyright {
+      color: rgb(255, 255, 255);
+      font-family: "DM Sans", sans-serif;
+      font-style: normal;
+      line-height: 24px;
+    }
+  }
+}
