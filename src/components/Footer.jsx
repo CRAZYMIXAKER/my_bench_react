@@ -22,9 +22,10 @@ const Footer = () => {
                     <Link className="information-link" to="/terms-of-service">Terms of Service</Link>
                     <ButtonMailTo
                         className="information-link"
-                        label="Contact Support"
                         mailto="mailto:zombisuki@gmail.com"
-                    />
+                    >
+                        Contact Support
+                    </ButtonMailTo>
                 </div>
                 <div className="copyright"> © mixaker 2023</div>
             </div>

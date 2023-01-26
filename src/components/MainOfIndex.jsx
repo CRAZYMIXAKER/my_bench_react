@@ -2,7 +2,14 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import '../styles/components/MainOfIndex.scss';
 // import {RiFilter3Line} from "react-icons/ri";
-import {MdOutlineSearch, MdOutlineFilterList, MdOutlineNotificationAdd, MdOutlineFavoriteBorder} from "react-icons/md";
+import {
+    MdOutlineSearch,
+    MdOutlineFilterList,
+    MdOutlineNotificationAdd,
+    MdOutlineFavoriteBorder,
+    MdMailOutline
+} from "react-icons/md";
+import ButtonMailTo from "./UI/button/ButtonMailTo";
 
 const MainOfIndex = () => {
     return (
@@ -134,6 +141,12 @@ const MainOfIndex = () => {
             </section>
 
             <section className="mail">
+                <ButtonMailTo
+                    className="mail-link"
+                    mailto="mailto:zombisuki@gmail.com"
+                >
+                    <MdMailOutline/> info@mixaker.io
+                </ButtonMailTo>
             </section>
         </main>
     );

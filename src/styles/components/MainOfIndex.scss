@@ -245,18 +245,41 @@ main {
 
           p {
             margin: 22px 0 0;
-            
+
             &:first-child {
               margin-top: 0 !important;
             }
           }
         }
       }
-
     }
   }
 
   .mail {
+    margin-bottom: 26px;
 
+    &-link {
+      background-color: rgb(246, 246, 247);
+      border-radius: 8px;
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+      display: flex;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 24px;
+      padding: 8px 18px 8px 14px;
+      transition: background-color 0.35s ease-in-out 0s;
+      width: 227px;
+
+      &:hover {
+        background-color: rgb(243, 238, 254);
+      }
+    }
+
+    svg {
+      height: 24px;
+      margin: 0 11px 0 0;
+      width: 24px;
+    }
   }
 }

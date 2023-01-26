@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-const ButtonMailTo = ({className, mailto, label}) => {
+const ButtonMailTo = ({className, mailto, children}) => {
     return (
         <Link
             className={className}
@@ -11,7 +11,7 @@ const ButtonMailTo = ({className, mailto, label}) => {
                 e.preventDefault();
             }}
         >
-            {label}
+            {children}
         </Link>
     );
 };
