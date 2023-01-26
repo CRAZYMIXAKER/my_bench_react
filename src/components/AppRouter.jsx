@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import {publicRoutes} from "../router";
 
 const AppRouter = () => {
@@ -11,10 +11,9 @@ const AppRouter = () => {
                     exact={route.exact}
                     element={route.element}
                     key={route.path}
-
                 />
             )}
-            {/*<Route path="/*" element={<Navigate to="/login"/>}/>*/}
+            <Route path="/*" element={<Navigate to="/error"/>}/>
         </Routes>
     );
 };

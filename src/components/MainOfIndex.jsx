@@ -59,6 +59,19 @@ const MainOfIndex = () => {
             </section>
 
             <section className="trial">
+                <div className="trial-wrapper">
+                    <h2 className="trial-title">
+                        All new users get 3 months free trial with unlimited publications
+                    </h2>
+                    <div className="trial-content">
+                        <Link className="trial-content-start _btn _btn-white" to="/trial">Start Free Trial</Link>
+                        <div className="trial-content-description">
+                            No credit card required.
+                            <br/>
+                            Cancel anytime.
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section className="prices">
