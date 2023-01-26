@@ -1,0 +1,100 @@
+.header {
+  background-color: rgb(130, 79, 231);
+  color: rgb(255, 255, 255);
+
+  &-main {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1376px;
+    padding: 7px 20px;
+
+    .links {
+      align-items: center;
+      column-gap: 40px;
+      display: flex;
+
+      &-logo {
+        margin-top: 10px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      &-available,
+      &-looking-for {
+        color: inherit;
+        font-family: "DM Sans", sans-serif;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .auth {
+      display: flex;
+      column-gap: 8px;
+
+      &-registration {
+        display: inline-flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        user-select: none;
+        border-radius: 16px;
+        cursor: pointer;
+        padding: 12px;
+        font-weight: 700;
+        font-family: "DM Sans", sans-serif;
+        font-size: 14px;
+        line-height: 24px;
+        width: fit-content;
+        color: rgb(255, 255, 255);
+        background-color: rgb(14, 13, 16);
+        border: 1px solid rgb(14, 13, 16);
+        transition: color 0.15s ease-in-out 0s, background-color 0.15s ease-in-out 0s, border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+
+        &:hover {
+          text-decoration: none;
+          color: rgb(255, 255, 255);
+          box-shadow: rgb(0 0 0 / 38%) 0px 6px 12px;
+          background-color: rgb(14, 13, 16);
+          border-color: rgb(14, 13, 16);
+        }
+      }
+
+      &-login {
+        display: inline-flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        user-select: none;
+        border-radius: 16px;
+        cursor: pointer;
+        padding: 12px;
+        font-weight: 700;
+        font-family: "DM Sans", sans-serif;
+        font-size: 14px;
+        line-height: 24px;
+        width: fit-content;
+        color: rgb(255, 255, 255);
+        background-color: transparent;
+        border: 1px solid rgb(255, 255, 255);
+        transition: color 0.15s ease-in-out 0s, background-color 0.15s ease-in-out 0s, border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+
+        &:hover {
+          text-decoration: none;
+          color: rgb(255, 255, 255);
+          box-shadow: none;
+          background-color: rgba(255, 255, 255, 0.2);
+          border-color: rgb(255, 255, 255);
+        }
+      }
+    }
+  }
+}

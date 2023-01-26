@@ -3,11 +3,13 @@ import Available from "../pages/Available";
 import LookingFor from "../pages/LookingFor";
 import Login from "../pages/Login";
 import Registration from "../pages/Registration";
+import Index from "../pages/Index";
 
 export const privateRoutes = [
     // {path: '/posts/:id', element: <PostIdPage/>, exact: true},
 ]
 export const publicRoutes = [
+    {path: '/', element: <Index/>, exact: true},
     {path: '/available', element: <Available/>, exact: true},
     {path: '/looking-for', element: <LookingFor/>, exact: true},
     {path: '/error', element: <Error/>, exact: true},
