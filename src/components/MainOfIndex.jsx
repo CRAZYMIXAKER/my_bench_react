@@ -75,6 +75,62 @@ const MainOfIndex = () => {
             </section>
 
             <section className="prices">
+                <h2 className="prices-title">Prices</h2>
+                <div className="prices-text">Choose your personal plan depending on your needs</div>
+                <div className="prices-list">
+                    <div className="item">
+                        <div className="item-wrapper">
+                            <h4 className="item-title">Basic</h4>
+                            <h3 className="item-price">
+                                $0<span>/mo</span>
+                            </h3>
+                            <div className="item-description">
+                                <p>
+                                    <span>One free</span> publication in Available
+                                    <br/>
+                                    Resources board each week
+                                    <br/>
+                                    <span>Unlimited</span> publications in Looking for board
+                                </p>
+                                <p>Publications expire in 7 days</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="item">
+                        <div className="item-wrapper">
+                            <h4 className="item-title">Standard</h4>
+                            <h3 className="item-price">
+                                $39<span>/mo</span>
+                            </h3>
+                            <div className="item-description">
+                                <p>
+                                    <span>10</span> publications in Available Resources board each month
+                                    <br/>
+                                    <span>Unlimited</span> publications in Looking for board
+                                </p>
+                                <p>Publications expire in 30 days</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="item">
+                        <div className="item-wrapper">
+                            <h4 className="item-title">Pro</h4>
+                            <h3 className="item-price">
+                                $84<span>/mo</span>
+                            </h3>
+                            <div className="item-description">
+                                <p>
+                                    <span>Unlimited</span> publications in Available resources board
+                                    <br/>
+                                    <span>Unlimited</span> publications in Looking for board
+                                    <br/>
+                                    Fast publishing via uploading <span>CSV file</span>
+                                </p>
+                                <p>Publications expire in 30 days</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section className="mail">
