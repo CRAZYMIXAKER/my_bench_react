@@ -6,8 +6,15 @@
 
 body {
   box-sizing: border-box;
+  color: rgb(14, 13, 16);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  height: 100%;
+  line-height: 22px;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 #root {

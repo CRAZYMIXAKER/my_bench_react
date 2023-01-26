@@ -1,6 +1,16 @@
 main {
+  section {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
   .hero {
     background-color: rgb(130, 79, 231);
+    margin: 0 0 120px 0;
+    max-width: unset;
+    overflow: hidden;
+    padding: unset;
 
     &-main {
       column-gap: 24px;
@@ -65,7 +75,46 @@ main {
   }
 
   .opportunities {
+    margin-bottom: 103px;
 
+    &-title {
+      font-size: 56px;
+      line-height: 62px;
+      margin-bottom: 122px;
+      max-width: 817px;
+      width: 100%;
+    }
+
+    &-list {
+      column-gap: 32px;
+      display: flex;
+      flex-flow: row wrap;
+
+      &-item {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 25%;
+        max-width: 304px;
+        row-gap: 20px;
+        width: 100%;
+
+        svg {
+          width: 56px;
+          height: 56px;
+        }
+
+        h3 {
+          font-size: 32px;
+          font-weight: 400;
+          line-height: 29px;
+        }
+
+        p {
+          line-height: 24px;
+          opacity: 0.7;
+        }
+      }
+    }
   }
 
   .trial {
