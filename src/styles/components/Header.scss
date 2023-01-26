@@ -36,64 +36,12 @@
       display: flex;
       column-gap: 8px;
 
-      &-registration {
-        display: inline-flex;
-        -webkit-box-pack: center;
-        justify-content: center;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: middle;
-        user-select: none;
-        border-radius: 16px;
-        cursor: pointer;
-        padding: 12px;
-        font-weight: 700;
-        font-family: "DM Sans", sans-serif;
-        font-size: 14px;
-        line-height: 24px;
-        width: fit-content;
-        color: rgb(255, 255, 255);
-        background-color: rgb(14, 13, 16);
-        border: 1px solid rgb(14, 13, 16);
-        transition: color 0.15s ease-in-out 0s, background-color 0.15s ease-in-out 0s, border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-
-        &:hover {
-          text-decoration: none;
-          color: rgb(255, 255, 255);
-          box-shadow: rgb(0 0 0 / 38%) 0px 6px 12px;
-          background-color: rgb(14, 13, 16);
-          border-color: rgb(14, 13, 16);
-        }
-      }
-
+      &-registration,
       &-login {
-        display: inline-flex;
-        -webkit-box-pack: center;
-        justify-content: center;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: middle;
-        user-select: none;
-        border-radius: 16px;
-        cursor: pointer;
-        padding: 12px;
-        font-weight: 700;
-        font-family: "DM Sans", sans-serif;
         font-size: 14px;
         line-height: 24px;
-        width: fit-content;
-        color: rgb(255, 255, 255);
-        background-color: transparent;
-        border: 1px solid rgb(255, 255, 255);
-        transition: color 0.15s ease-in-out 0s, background-color 0.15s ease-in-out 0s, border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-
-        &:hover {
-          text-decoration: none;
-          color: rgb(255, 255, 255);
-          box-shadow: none;
-          background-color: rgba(255, 255, 255, 0.2);
-          border-color: rgb(255, 255, 255);
-        }
+        min-width: 112px;
+        padding: 11px 12px;
       }
     }
   }

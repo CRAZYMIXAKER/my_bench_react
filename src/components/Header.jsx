@@ -22,8 +22,8 @@ const Header = () => {
                     <Link className="links-looking-for" to="/looking-for">Looking-for</Link>
                 </div>
                 <div className="auth">
-                    <button className="auth-registration _btn">Sign Up</button>
-                    <button className="auth-login _btn">Login</button>
+                    <button className="auth-registration _btn _btn-black">Sign Up</button>
+                    <button className="auth-login _btn _btn-transparent">Login</button>
                 </div>
             </div>
         </header>

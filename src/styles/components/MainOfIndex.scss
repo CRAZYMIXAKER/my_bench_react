@@ -1,0 +1,82 @@
+main {
+  .hero {
+    background-color: rgb(130, 79, 231);
+
+    &-main {
+      column-gap: 24px;
+      display: flex;
+      flex-direction: row;
+      margin: 0 auto;
+      max-width: 1360px;
+      padding: 0 20px;
+
+      .description {
+        margin-bottom: 30px;
+        margin-top: 156px;
+        max-width: 735px;
+        width: 100%;
+
+        &-title {
+          font-size: 72px;
+          line-height: 74px;
+
+          span {
+            color: rgb(255, 255, 255);
+            font-family: "DM Sans", sans-serif;
+            font-weight: 700;
+            margin-bottom: 24px;
+          }
+        }
+
+        &-text {
+          color: rgb(255, 255, 255);
+          font-family: "DM Sans", sans-serif;
+          font-size: 18px;
+          line-height: 32px;
+          margin-bottom: 31px;
+          margin-top: 24px;
+          max-width: 510px;
+          opacity: 0.8;
+        }
+
+        &-links {
+          display: flex;
+          flex-direction: row;
+          gap: 0 8px;
+        }
+      }
+
+      .image {
+        -webkit-box-flex: 1;
+        flex-grow: 1;
+        height: 699px;
+        margin: 18px 0 31px;
+        position: relative;
+
+        &-wrapper {
+          height: 729px;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 618px;
+        }
+      }
+    }
+  }
+
+  .opportunities {
+
+  }
+
+  .trial {
+
+  }
+
+  .prices {
+
+  }
+
+  .mail {
+
+  }
+}
