@@ -1,8 +1,26 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import InformationList from "../components/InformationList";
+import PostService from "../API/PostService";
+import {useFetching} from "../hooks/useFetching";
 
 const Available = () => {
+    const [posts, setPosts] = useState([]);
+    const [totalPages, setTotalPages] = useState(0);
+    const [limit, setLimit] = useState(10);
+    const [page, setPage] = useState(1);
+
+    const [fetchPost, isPostsLoading, postError] = useFetching(async () => {
+        const response = await PostService.getAll(limit, page);
+        setPosts([...posts, ...response.data]);
+        const totalCount = response.headers['x-total-count'];
+    })
+
+    useEffect(() => {
+        fetchPost(limit, page);
+    }, [])
+
     return (
         <div className="wrapper">
             <Header
@@ -19,7 +37,7 @@ const Available = () => {
                         fill="#824FE7"></path>
                 </svg>}
             />
-            Available
+            <InformationList posts={posts}/>
             <Footer/>
         </div>
     );
