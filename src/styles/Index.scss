@@ -58,5 +58,18 @@
       box-shadow: none;
     }
   }
+
+  &-black-border {
+    background-color: transparent;
+    border: 1px solid rgb(14, 13, 16);
+    color: rgb(14, 13, 16);
+
+    &:hover {
+      background-color: rgba(14, 13, 16, 0.1);
+      border-color: rgb(14, 13, 16);
+      box-shadow: none;
+      color: rgb(14, 13, 16);
+    }
+  }
 }
 
