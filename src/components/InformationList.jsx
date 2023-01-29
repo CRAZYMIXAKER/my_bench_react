@@ -33,3 +33,4 @@ const InformationList = ({posts}) => {
 };
 
 export default InformationList;
+
