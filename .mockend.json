@@ -1,237 +1,66 @@
 {
-  "Vacancies": {
+  "Post": {
     "_": {
-      "items": 453
+      "items": 10
     },
-    "role": {
-      "string": [
-        "Frontend",
-        "Backend",
-        "FullStack",
-        "BA",
-        "PM",
-        "QA",
-        "Designer",
-        "Mobile",
-        "Devops"
-      ]
+    "cover": {
+      "regexp": "https://picsum\\.photos/seed/[0-9]{5}/1920/270"
     },
-    "seniority": {
-      "string": [
-        "Junior",
-        "Middle",
-        "Senior",
-        "Tech Lead"
-      ]
-    },
-    "main-task": {
-      "string": [
-        "PHP",
-        "Vue",
-        "JavaScript",
-        "TypeScript",
-        "Next",
-        "React",
-        "Git",
-        "jQuery",
-        "Bootstrap 4",
-        "Docker",
-        "Angular6+",
-        "Angular Material",
-        "PostgreSQL"
-      ]
-    },
-    "rate": {
-      "int": {
-        "min": 10,
-        "max": 100
+    "title": {
+      "loremWords": {
+        "minLength": 5,
+        "maxLength": 20
       }
     },
-    "english": {
-      "string": [
-        "Beginner",
-        "Pre-intermediate",
-        "Intermediate",
-        "Upper-Intermediate",
-        "Advanced",
-        "Fluent"
-      ]
-    },
-    "location": {
-      "string": [
-        "Europe",
-        "Asia",
-        "Africa",
-        "North America",
-        "Latin America",
-        "Afghanistan",
-        "Albania",
-        "Algeria",
-        "Andorra",
-        "AngolaAntigua and Barbuda",
-        "Argentina",
-        "Armenia",
-        "Australia",
-        "Austria",
-        "Azerbaijan",
-        "The Bahamas",
-        "Bahrain",
-        "Bangladesh",
-        "Barbados",
-        "Belgium",
-        "Belize",
-        "Benin",
-        "Bhutan",
-        "Bolivia",
-        "Bosnia and Herzegovina",
-        "Botswana",
-        "Brazil",
-        "Brunei",
-        "Bulgaria",
-        "Latvia",
-        "Lebanon",
-        "Lesotho",
-        "Liberia",
-        "Libya",
-        "Liechtenstein",
-        "Lithuania",
-        "Luxembourg",
-        "Madagascar",
-        "Malawi",
-        "Malaysia",
-        "Maldives",
-        "Mali",
-        "Malta",
-        "Marshall Island",
-        "Mauritania",
-        "Mauritius",
-        "Mexico",
-        "Micronesia",
-        "Moldova",
-        "Monaco",
-        "Mongolia",
-        "Montenegro",
-        "Morocco",
-        "Mozambique",
-        "Myanmar (Burma)",
-        "Namibia",
-        "Nauru",
-        "Nepal",
-        "Netherlands",
-        "New Zealan",
-        "Nicaragua",
-        "Niger",
-        "Nigeria",
-        "North Macedonia",
-        "Norway",
-        "Oman",
-        "Pakistan",
-        "Palau",
-        "Panama",
-        "Papua New Guinea",
-        "Paraguay",
-        "Peru",
-        "Philippines",
-        "Poland",
-        "Portugal",
-        "Qatar",
-        "Romania",
-        "Rwanda",
-        "Saint Kitts and Nevis",
-        "Saint Lucia",
-        "Saint Vincent and the Grenadines",
-        "Samoa",
-        "San Marino",
-        "Sao Tome and Principe",
-        "Saudi Arabia",
-        "Senegal",
-        "Serbia",
-        "Seychelles",
-        "Sierra Leone",
-        "Singapore",
-        "Slovakia",
-        "Slovenia",
-        "Solomon Islands",
-        "Somalia",
-        "South Africa",
-        "Spain",
-        "Sri Lanka",
-        "Sudan",
-        "Sudan, South",
-        "Suriname",
-        "Sweden",
-        "Switzerland",
-        "Syria",
-        "Taiwan",
-        "Tajikistan",
-        "Tanzania",
-        "Thailand",
-        "Togo",
-        "Tonga",
-        "Trinidad and Tobago",
-        "Tunisia",
-        "Turkey",
-        "Turkmenistan",
-        "Tuvalu",
-        "Uganda",
-        "Ukraine",
-        "United Arab Emirates",
-        "United Kingdom",
-        "United States",
-        "Uruguay",
-        "Uzbekistan",
-        "Vanuatu",
-        "Vatican City",
-        "Venezuela",
-        "Vietnam",
-        "Yemen",
-        "Zambia",
-        "Zimbabwe"
-      ]
-    },
-    "posted": {
-      "dateTime": {
-        "min": "2023-01-27T00:00:00Z",
-        "max": "2023-01-30T23:59:59Z"
-      }
-    },
-    "description": {
+    "body": {
       "loremParagraphs": {
-        "minLength": 30,
+        "minLength": 10,
         "maxLength": 100
       }
     },
-    "company-location": {
-      "string": [
-        "USA",
-        "Russian",
-        "Ukraine",
-        "Belarus",
-        "Germany",
-        "Poland",
-        "Estonia"
-      ]
+    "category": {
+      "string": ["one", "two", "three"]
     },
-    "workload": {
-      "string": [
-        "Full Time",
-        "Part Time"
-      ]
+    "isDraft": {
+      "boolean": {}
     },
-    "telegram": {
-      "loremWords": {
-        "minLength": 1,
-        "maxLength": 1
+    "views": {
+      "int": {
+        "min": 0,
+        "max": 1000
       }
+    },
+    "createdAt": {
+      "dateTime": {
+        "min": "2010-01-01T00:00:00Z",
+        "max": "2020-12-31T23:59:59Z"
+      }
+    },
+    "comm-ents": {
+      "hasMany": "Comment"
+    }
+  },
+  "Comment": {
+    "_": {
+      "items": 25
     },
     "email": {
       "regexp": "[a-z]{5,10}@[a-z]{5}\\.[a-z]{2,3}"
     },
-    "company": {
-      "loremWords": {
-        "minLength": 1,
-        "maxLength": 3
+    "body": {
+      "loremParagraphs": {
+        "minLength": 10,
+        "maxLength": 100
       }
+    },
+    "createdAt": {
+      "dateTime": {
+        "min": "2010-01-01T00:00:00Z",
+        "max": "2020-12-31T23:59:59Z"
+      }
+    },
+    "post": {
+      "belongsTo": "Post"
     }
   }
 }
