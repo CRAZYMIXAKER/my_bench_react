@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import InformationList from "../components/InformationList";
-import PostService from "../API/PostService";
+import VacancyService from "../API/VacancyService";
 import {useFetching} from "../hooks/useFetching";
 
 const Available = () => {
@@ -12,7 +12,7 @@ const Available = () => {
     const [page, setPage] = useState(1);
 
     const [fetchPost, isPostsLoading, postError] = useFetching(async () => {
-        const response = await PostService.getAll(limit, page);
+        const response = await VacancyService.getAll(limit, page);
         setPosts([...posts, ...response.data]);
         const totalCount = response.headers['x-total-count'];
     })
