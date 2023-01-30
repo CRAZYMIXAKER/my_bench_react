@@ -1,9 +1,9 @@
 import InformationListItem from "./InformationListItem";
 import '../styles/components/InformationList.scss'
 
-const InformationList = ({posts}) => {
+const InformationList = ({vacancies}) => {
 
-    if (!posts.length) {
+    if (!vacancies.length) {
         return (
             <h1 style={{textAlign: 'center'}}>
                 Посты не найдены
@@ -24,8 +24,8 @@ const InformationList = ({posts}) => {
                 {/*    item={{title: 0, text: "asdadss", obs: {option: 'asdasd', osd: "asdasdf"}}}*/}
                 {/*/>*/}
 
-                {posts.map(post =>
-                    <InformationListItem post={post} key={post.id}/>
+                {vacancies.map(vacancy =>
+                    <InformationListItem post={vacancy} key={vacancy.id}/>
                 )}
             </div>
         </main>

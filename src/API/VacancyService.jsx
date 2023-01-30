@@ -1,13 +1,8 @@
 import axios from "axios";
 
 export default class VacancyService {
-    static async getAll(limit = 30, page = 1) {
-        const response = await axios.get('https://mockend.com/CRAZYMIXAKER/my_bench_react/vacancy', {
-            params: {
-                limit: limit,
-                offset: page
-            }
-        });
+    static async getAll() {
+        const response = await axios.get('https://mockend.com/CRAZYMIXAKER/my_bench_react/vacancy');
         return response;
     }
 

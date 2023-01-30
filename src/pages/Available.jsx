@@ -1,34 +1,41 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import InformationList from "../components/InformationList";
 import VacancyService from "../API/VacancyService";
 import {useFetching} from "../hooks/useFetching";
+import {useVacancies} from "../hooks/useVacancies";
 import Loader from "../components/UI/Loader/Loader";
-import {getPageCount, getPagesArray} from "../utils/pages";
+import {getPageCount} from "../utils/pages";
 import Pagination from "../components/UI/pagination/Pagination";
+import InformationListFilter from "../components/InformationListFilter";
 
 const Available = () => {
-    const [posts, setPosts] = useState([]);
+    const [vacancies, setVacancies] = useState([]);
+    const [filter, setFilter] = useState({sort: '', query: ''});
     const [totalPages, setTotalPages] = useState(0);
     const [limit, setLimit] = useState(30);
     const [page, setPage] = useState(1);
-    const pagesArray = getPagesArray(totalPages)
+    const filteredAndSearchedVacancies = useVacancies(vacancies, filter.query);
 
-    const [fetchPost, isPostsLoading, postError] = useFetching(async () => {
-        const response = await VacancyService.getAll(limit, ((page - 1) * limit));
-        setPosts(response.data);
-        const totalCount = 453;
-        setTotalPages(getPageCount(totalCount, limit));
+    const [fetchVacancies, isVacanciesLoading, postError] = useFetching(async () => {
+        const response = await VacancyService.getAll();
+        setVacancies(response.data);
+        setTotalPages(getPageCount(vacancies.length, limit));
     })
 
     const changePage = (page) => {
         setPage(page)
     }
 
+    useMemo(() => {
+        setPage(1);
+        setTotalPages(getPageCount(filteredAndSearchedVacancies.length, limit));
+    }, [filteredAndSearchedVacancies])
+
     useEffect(() => {
-        fetchPost(limit, page);
-    }, [page, limit])
+        fetchVacancies(limit, page);
+    }, [])
 
     return (
         <div className="wrapper">
@@ -46,13 +53,18 @@ const Available = () => {
                         fill="#824FE7"></path>
                 </svg>}
             />
+            <InformationListFilter
+                filter={filter}
+                setFilter={setFilter}
+            />
             {postError &&
                 <h1 style={{color: "red"}}>Error ${postError}</h1>
             }
-            {isPostsLoading &&
+            {isVacanciesLoading &&
                 <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}><Loader/></div>
             }
-            <InformationList posts={posts}/>
+            <InformationList
+                vacancies={filteredAndSearchedVacancies.slice((page - 1) * limit, ((page - 1) * limit) + 30)}/>
             <Pagination
                 page={page}
                 changePage={changePage}
