@@ -1,0 +1,17 @@
+.page-wrapper {
+  column-gap: 10px;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.page {
+  border: 1px solid teal;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.page-current {
+  border: 2px solid orange;
+  font-weight: bold;
+}

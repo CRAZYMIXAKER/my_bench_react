@@ -4,8 +4,8 @@ export default class VacancyService {
     static async getAll(limit = 30, page = 1) {
         const response = await axios.get('https://mockend.com/CRAZYMIXAKER/my_bench_react/vacancy', {
             params: {
-                _limit: limit,
-                _page: page
+                limit: limit,
+                offset: page
             }
         });
         return response;

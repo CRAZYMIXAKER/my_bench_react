@@ -4,22 +4,31 @@ import Footer from "../components/Footer";
 import InformationList from "../components/InformationList";
 import VacancyService from "../API/VacancyService";
 import {useFetching} from "../hooks/useFetching";
+import Loader from "../components/UI/Loader/Loader";
+import {getPageCount, getPagesArray} from "../utils/pages";
+import Pagination from "../components/UI/pagination/Pagination";
 
 const Available = () => {
     const [posts, setPosts] = useState([]);
     const [totalPages, setTotalPages] = useState(0);
-    const [limit, setLimit] = useState(10);
+    const [limit, setLimit] = useState(30);
     const [page, setPage] = useState(1);
+    const pagesArray = getPagesArray(totalPages)
 
     const [fetchPost, isPostsLoading, postError] = useFetching(async () => {
-        const response = await VacancyService.getAll(limit, page);
-        setPosts([...posts, ...response.data]);
-        const totalCount = response.headers['x-total-count'];
+        const response = await VacancyService.getAll(limit, ((page - 1) * limit));
+        setPosts(response.data);
+        const totalCount = 453;
+        setTotalPages(getPageCount(totalCount, limit));
     })
+
+    const changePage = (page) => {
+        setPage(page)
+    }
 
     useEffect(() => {
         fetchPost(limit, page);
-    }, [])
+    }, [page, limit])
 
     return (
         <div className="wrapper">
@@ -37,7 +46,18 @@ const Available = () => {
                         fill="#824FE7"></path>
                 </svg>}
             />
+            {postError &&
+                <h1 style={{color: "red"}}>Error ${postError}</h1>
+            }
+            {isPostsLoading &&
+                <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}><Loader/></div>
+            }
             <InformationList posts={posts}/>
+            <Pagination
+                page={page}
+                changePage={changePage}
+                totalPages={totalPages}
+            />
             <Footer/>
         </div>
     );
