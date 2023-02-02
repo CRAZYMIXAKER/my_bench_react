@@ -12,7 +12,7 @@ import InformationListFilter from "../components/InformationListFilter";
 
 const Available = () => {
     const [vacancies, setVacancies] = useState([]);
-    const [filter, setFilter] = useState({sort: '', query: ''});
+    const [filter, setFilter] = useState({query: '', filters: []});
     const [totalPages, setTotalPages] = useState(0);
     const [limit, setLimit] = useState(30);
     const [page, setPage] = useState(1);
@@ -64,7 +64,8 @@ const Available = () => {
                 <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}><Loader/></div>
             }
             <InformationList
-                vacancies={filteredAndSearchedVacancies.slice((page - 1) * limit, ((page - 1) * limit) + 30)}/>
+                vacancies={filteredAndSearchedVacancies.slice((page - 1) * limit, ((page - 1) * limit) + 30)}
+            />
             <Pagination
                 page={page}
                 changePage={changePage}
