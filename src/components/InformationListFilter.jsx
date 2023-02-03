@@ -20,12 +20,16 @@ const InformationListFilter = ({filter, setFilter}) => {
 
     return (
         <div>
+            <Filter
+                arrayFilters={arrayFilters}
+                filter={filter}
+                setFilter={setFilter}
+            />
             <MyInput
                 value={filter.query}
                 onChange={e => setFilter({...filter, query: e.target.value})}
                 placeholder="Поиск"
             />
-            <Filter arrayFilters={arrayFilters}/>
         </div>
     );
 };

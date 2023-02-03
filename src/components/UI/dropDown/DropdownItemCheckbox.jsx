@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const DropdownItemCheckbox = ({items}) => {
+    const [checkbox, useCheckbox] = useState({});
+    // useCheckbox(items);
+    // console.log(checkbox);
     return (
         <div className="dropdown">
             {Object.values(items).map(item => {
@@ -11,7 +14,7 @@ const DropdownItemCheckbox = ({items}) => {
                                 <input
                                     type="checkbox"
                                     name={item}
-                                    key={item}
+                                    checked={true}
                                     className="dropdown-item-checkbox"/>
                                 <span className="dropdown-item-checked"></span>
                                 {item}

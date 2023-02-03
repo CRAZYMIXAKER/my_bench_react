@@ -1,12 +1,26 @@
 import React from 'react';
 import DropdownItemCheckbox from "./DropdownItemCheckbox";
 
-const Dropdown = ({form}) => {
+const Dropdown = ({form, filter, setFilter}) => {
+    const clearFilter = (formName) => {
+        // item.checked = false;
+        return setFilter({...filter, filters: {[formName]: []}})
+    }
+    const saveFilter = (e) => {
+        e.preventDefault();
+        let formName = e.target.name;
+        let formValues = [];
+
+        Object.values(e.target).map(item => {
+            item.checked && formValues.push(item.name);
+        });
+        return setFilter({...filter, filters: {[formName]: formValues}})
+    }
     return (
         <div className="filter-dropdown">
             <form key={form[0]}
                   name={form[0]}
-                // onSubmit={saveFilter}
+                  onSubmit={saveFilter}
             >
                 <DropdownItemCheckbox items={form[1]}/>
 
@@ -15,7 +29,7 @@ const Dropdown = ({form}) => {
                     <button
                         name="clear"
                         type="button"
-                        // onClick={form[0] => clearFilter}
+                        onClick={() => clearFilter(form[0])}
                     >
                         Clear
                     </button>

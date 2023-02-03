@@ -2,7 +2,7 @@ import React from 'react';
 import {MdOutlineArrowDropDown} from "react-icons/md";
 import Dropdown from "../dropDown/Dropdown";
 
-const Filter = ({arrayFilters}) => {
+const Filter = ({arrayFilters, filter, setFilter}) => {
     return (
         <div>
             {Object.entries(arrayFilters).map(form => {
@@ -14,7 +14,11 @@ const Filter = ({arrayFilters}) => {
                             <MdOutlineArrowDropDown/>
                         </button>
 
-                        <Dropdown form={form}/>
+                        <Dropdown
+                            form={form}
+                            filter={filter}
+                            setFilter={setFilter}
+                        />
                     </div>
                 );
             })}
