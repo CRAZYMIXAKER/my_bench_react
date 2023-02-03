@@ -1,23 +1,35 @@
 import React, {useState} from 'react';
+import MyInput from "../input/MyInput";
 
-const DropdownItemCheckbox = ({items}) => {
+const DropdownItemCheckbox = ({items, filterName, filters, setFilters}) => {
     const [checkbox, useCheckbox] = useState({});
     // useCheckbox(items);
     // console.log(checkbox);
     return (
         <div className="dropdown">
-            {Object.values(items).map(item => {
+            {items.map((item, index) => {
                 return (
-                    <div className="dropdown-item">
+                    <div key={item.name} className="dropdown-item">
                         <div className="dropdown-item-wrapper">
                             <label className="dropdown-item-label">
-                                <input
+                                <MyInput
                                     type="checkbox"
-                                    name={item}
-                                    checked={true}
-                                    className="dropdown-item-checkbox"/>
+                                    name={item.name}
+                                    checked={item.checked}
+                                    className="dropdown-item-checkbox"
+                                    onChange={
+                                        // e => filters[filterName][index][item.name] = e.target.checked
+
+                                        e => setFilters(
+                                            {
+                                                ...filters,
+                                                [filterName]: [{name: item.name, checked: e.target.checked}]
+                                            }
+                                        )
+                                    }
+                                />
                                 <span className="dropdown-item-checked"></span>
-                                {item}
+                                {item.name}
                             </label>
                         </div>
                     </div>
