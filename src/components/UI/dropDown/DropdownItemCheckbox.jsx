@@ -2,31 +2,16 @@ import React, {useState} from 'react';
 import MyInput from "../input/MyInput";
 
 const DropdownItemCheckbox = ({items, filterName, filters, setFilters}) => {
-    // console.log(filters[filterName])
     const changeCheckboxStatus = (checkboxName, checkboxStatus) => {
-        setFilters(filters.map(filter => {
-            if (filter === filterName) {
-                console.log('filterName' + filterName + ' ' + filter);
-                return filter.map(checkbox => {
-                    console.log(checkbox['name']);
-                    console.log('edit');
-                    if (checkbox.name === checkbox && checkbox.checked !== checkboxStatus) {
-                        return {
-                            ...checkbox,
-                            name: checkbox,
-                            checked: checkboxStatus
-                        }
-                    } else {
-                        return checkbox
-                    }
-                })
-            } else {
-                return filter;
-            }
+        setFilters(prevState => ({
+            [filterName]: prevState[filterName].map(checkbox => checkbox.name === checkboxName ? {
+                    ...checkbox,
+                    checked: !checkboxStatus
+                } : checkbox
+            )
         }))
     }
 
-    // console.log(filters)
     return (
         <div className="dropdown">
             {items.map((item, index) => {
@@ -40,7 +25,7 @@ const DropdownItemCheckbox = ({items, filterName, filters, setFilters}) => {
                                     checked={item.checked}
                                     className="dropdown-item-checkbox"
                                     onChange={() => {
-                                        changeCheckboxStatus(item.name, item.checked);
+                                        changeCheckboxStatus(item.name, item.checked, index);
                                     }}
                                 />
                                 <span className="dropdown-item-checked"></span>
