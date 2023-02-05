@@ -2,9 +2,31 @@ import React, {useState} from 'react';
 import MyInput from "../input/MyInput";
 
 const DropdownItemCheckbox = ({items, filterName, filters, setFilters}) => {
-    const [checkbox, useCheckbox] = useState({});
-    // useCheckbox(items);
-    // console.log(checkbox);
+    // console.log(filters[filterName])
+    const changeCheckboxStatus = (checkboxName, checkboxStatus) => {
+        setFilters(filters.map(filter => {
+            if (filter === filterName) {
+                console.log('filterName' + filterName + ' ' + filter);
+                return filter.map(checkbox => {
+                    console.log(checkbox['name']);
+                    console.log('edit');
+                    if (checkbox.name === checkbox && checkbox.checked !== checkboxStatus) {
+                        return {
+                            ...checkbox,
+                            name: checkbox,
+                            checked: checkboxStatus
+                        }
+                    } else {
+                        return checkbox
+                    }
+                })
+            } else {
+                return filter;
+            }
+        }))
+    }
+
+    // console.log(filters)
     return (
         <div className="dropdown">
             {items.map((item, index) => {
@@ -17,16 +39,9 @@ const DropdownItemCheckbox = ({items, filterName, filters, setFilters}) => {
                                     name={item.name}
                                     checked={item.checked}
                                     className="dropdown-item-checkbox"
-                                    onChange={
-                                        // e => filters[filterName][index][item.name] = e.target.checked
-
-                                        e => setFilters(
-                                            {
-                                                ...filters,
-                                                [filterName]: [{name: item.name, checked: e.target.checked}]
-                                            }
-                                        )
-                                    }
+                                    onChange={() => {
+                                        changeCheckboxStatus(item.name, item.checked);
+                                    }}
                                 />
                                 <span className="dropdown-item-checked"></span>
                                 {item.name}
