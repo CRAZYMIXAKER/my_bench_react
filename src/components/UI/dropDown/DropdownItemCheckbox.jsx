@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import MyInput from "../input/MyInput";
 
 const DropdownItemCheckbox = ({items, filterName, filters, setFilters}) => {
-    const changeCheckboxStatus = (checkboxName, checkboxStatus) => {
+    const updateCheckboxStatus = (checkboxName, checkboxStatus) => {
         setFilters(prevState => ({
+            ...prevState,
             [filterName]: prevState[filterName].map(checkbox => checkbox.name === checkboxName ? {
                     ...checkbox,
                     checked: !checkboxStatus
@@ -11,6 +12,8 @@ const DropdownItemCheckbox = ({items, filterName, filters, setFilters}) => {
             )
         }))
     }
+
+    // console.log("ccc" + filters + "ddd");
 
     return (
         <div className="dropdown">
@@ -25,7 +28,7 @@ const DropdownItemCheckbox = ({items, filterName, filters, setFilters}) => {
                                     checked={item.checked}
                                     className="dropdown-item-checkbox"
                                     onChange={() => {
-                                        changeCheckboxStatus(item.name, item.checked, index);
+                                        updateCheckboxStatus(item.name, item.checked, index);
                                     }}
                                 />
                                 <span className="dropdown-item-checked"></span>

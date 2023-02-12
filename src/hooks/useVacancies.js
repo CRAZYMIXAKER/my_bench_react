@@ -1,11 +1,12 @@
 import {useMemo} from "react";
 
-export const useVacancies = (vacancies, query) => {
-    //more filters
-
+export const useVacancies = (vacancies, query, filters) => {
     const filteredAndSearchedVacancies = useMemo(() => {
+        if (filters) {
+            // console.log(filters);
+        }
         return vacancies.filter(vacancy => vacancy.description.toLowerCase().includes(query.toLowerCase()))
-    }, [query, vacancies])
+    }, [query, filters, vacancies]);
 
     return filteredAndSearchedVacancies;
 }

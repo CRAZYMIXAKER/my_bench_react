@@ -2,7 +2,7 @@ import React from 'react';
 import {MdOutlineArrowDropDown} from "react-icons/md";
 import DropdownItemCheckbox from "../dropDown/DropdownItemCheckbox";
 
-const Filter = ({filters, setFilters, filter, setFilter}) => {
+const Filter = ({filters, setFilters}) => {
     return (
         <div>
             {Object.entries(filters).map(filtersItem => {

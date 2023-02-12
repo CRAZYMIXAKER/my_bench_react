@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import MyInput from "./UI/input/MyInput";
 import Filter from "./UI/filter/Filter";
 
 const InformationListFilter = ({filter, setFilter}) => {
+    const [filteredArray, setFilteredArray] = useState({});
     const [filters, setFilters] = useState({
             "role": [
                 {
@@ -36,18 +37,59 @@ const InformationListFilter = ({filter, setFilter}) => {
                     name: "Devops",
                     checked: false
                 },
+            ],
+            "seniority": [
+                {
+                    name: "Junior",
+                    checked: false
+                },
+                {
+                    name: "Middle",
+                    checked: false
+                },
+                {
+                    name: "Senior",
+                    checked: false
+                },
+                {
+                    name: "Tech Lead",
+                    checked: false
+                }
             ]
         }
     )
+    useMemo(() => {
+        // const newArray = filters.filter((n, i, a) => a.filter(m => m[0] === n[0]).length > 1);
+        const newArray = Object.entries(filters).map(dropdown => {
+            const result = dropdown[1].filter(item => item['checked'] === true);
+            // console.log(result.length);
+            if (result.length > 0) {
+                console.log('asdasd');
+                return [dropdown[0], dropdown[1].filter(item => item['checked'] === true)];
+            }
+            return ;
+        });
+        console.log(newArray);
+        if (newArray.length > 0) {
+            // console.log(newArray)
+            for (let i = 0; i < newArray.length; i++) {
+                // console.log(newArray[i][1]);
+                // setFilteredArray({...filteredArray, [newArray[i][0]]: newArray[i][1]});
+                // console.log(newArray[i][0]);
+                // console.log(newArray[i][1]);
+            }
+            // console.log('sss');
+            // console.log(sss);
+            // setFilter({...filter, filters: newArray});
+        }
+    }, [filters]);
+    // console.log(filters);
 
     return (
         <div>
             <Filter
-                // key={arrayFilterRole[0]}
                 filters={filters}
                 setFilters={setFilters}
-                filter={filter}
-                setFilter={setFilter}
             />
             <MyInput
                 value={filter.query}
