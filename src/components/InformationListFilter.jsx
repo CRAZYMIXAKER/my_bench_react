@@ -54,7 +54,61 @@ const InformationListFilter = ({filter, setFilter}) => {
                     name: "Tech Lead",
                     checked: false
                 }
-            ]
+            ],
+            "location": [
+                {
+                    name: "USA",
+                    checked: false
+                }, {
+                    name: "Russian",
+                    checked: false
+                }, {
+                    name: "Ukraine",
+                    checked: false
+                }, {
+                    name: "Belarus",
+                    checked: false
+                }, {
+                    name: "Germany",
+                    checked: false
+                }, {
+                    name: "Poland",
+                    checked: false
+                }, {
+                    name: "Estonia",
+                    checked: false
+                },
+            ],
+            "english": [
+                {
+                    name: "Beginner",
+                    checked: false
+                }, {
+                    name: "Pre-intermediate",
+                    checked: false
+                }, {
+                    name: "Intermediate",
+                    checked: false
+                }, {
+                    name: "Upper-Intermediate",
+                    checked: false
+                }, {
+                    name: "Advanced",
+                    checked: false
+                }, {
+                    name: "Fluent",
+                    checked: false
+                },
+            ],
+            "workload": [
+                {
+                    name: "Full Time",
+                    checked: false
+                }, {
+                    name: "Part Time",
+                    checked: false
+                },
+            ],
         }
     )
 

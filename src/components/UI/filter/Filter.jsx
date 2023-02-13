@@ -6,19 +6,19 @@ const Filter = ({filters, setFilters, saveFilters}) => {
     return (
         <div>
             {Object.entries(filters).map(filtersItem => {
+                const count = Object.values(filtersItem[1]).filter((filter) => filter.checked).length;
                 return (
                     <div key={filtersItem[0]} className="filter">
                         <button type="button" className="filter-header">
-                            <span className="filter-header-title"> {filtersItem[0]} </span>
-                            <span className="filter-header-count"> 4 </span>
+                            <span className="filter-header-title"> {filtersItem[0].toUpperCase()} </span>
+                            <span className="filter-header-count">
+                                {count > 0 ? count : 0}
+                            </span>
                             <MdOutlineArrowDropDown/>
                         </button>
 
                         <div className="filter-dropdown">
-                            <form key={filtersItem[0]}
-                                  name={filtersItem[0]}
-                                // onSubmit={saveFilter}
-                            >
+                            <form key={filtersItem[0]} name={filtersItem[0]}>
                                 <DropdownItemCheckbox
                                     items={filtersItem[1]}
                                     filterName={filtersItem[0]}
