@@ -17,6 +17,8 @@ const Available = () => {
     const [limit, setLimit] = useState(30);
     const [page, setPage] = useState(1);
     const filteredAndSearchedVacancies = useVacancies(vacancies, filter.query, filter.filters);
+    // console.log(filteredAndSearchedVacancies);
+    // console.log(filter.filters);
 
     const [fetchVacancies, isVacanciesLoading, postError] = useFetching(async () => {
         const response = await VacancyService.getAll();

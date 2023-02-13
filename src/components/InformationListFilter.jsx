@@ -3,7 +3,6 @@ import MyInput from "./UI/input/MyInput";
 import Filter from "./UI/filter/Filter";
 
 const InformationListFilter = ({filter, setFilter}) => {
-    const [filteredArray, setFilteredArray] = useState({});
     const [filters, setFilters] = useState({
             "role": [
                 {
@@ -66,16 +65,16 @@ const InformationListFilter = ({filter, setFilter}) => {
             if (result.length > 0) {
                 return [dropdown[0], dropdown[1].filter(item => item['checked'] === true)];
             }
-        }).filter(nnn => (nnn !== undefined));
+        }).filter(nnn => (nnn !== undefined)).reduce((previousValue, currentValue) => {
+            previousValue[currentValue[0]] = currentValue[1];
+            return previousValue;
+        }, {});
 
-        if (newArray.length > 0) {
-            for (let i = 0; i < newArray.length; i++) {
-                setFilteredArray({...filteredArray, [newArray[i][0]]: newArray[i][1]});
-            }
-            setFilter({...filter, filters: filteredArray});
-        } else {
-            setFilter({...filter, filters: {}});
-        }
+        Object.keys(newArray).length > 0 ? setFilter({...filter, filters: newArray}) : setFilter({
+            ...filter,
+            filters: {}
+        });
+
         console.log('All checked checkbox were added to filter');
     };
 
