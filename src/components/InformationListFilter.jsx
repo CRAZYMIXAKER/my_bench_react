@@ -60,17 +60,17 @@ const InformationListFilter = ({filter, setFilter}) => {
 
     const saveFilters = (e) => {
         e.preventDefault();
-        const newArray = Object.entries(filters).map(dropdown => {
+        const checkedArray = Object.entries(filters).map(dropdown => {
             const result = dropdown[1].filter(item => item['checked'] === true);
             if (result.length > 0) {
                 return [dropdown[0], dropdown[1].filter(item => item['checked'] === true)];
             }
-        }).filter(nnn => (nnn !== undefined)).reduce((previousValue, currentValue) => {
+        }).filter(item => (item !== undefined)).reduce((previousValue, currentValue) => {
             previousValue[currentValue[0]] = currentValue[1];
             return previousValue;
         }, {});
 
-        Object.keys(newArray).length > 0 ? setFilter({...filter, filters: newArray}) : setFilter({
+        Object.keys(checkedArray).length > 0 ? setFilter({...filter, filters: checkedArray}) : setFilter({
             ...filter,
             filters: {}
         });
