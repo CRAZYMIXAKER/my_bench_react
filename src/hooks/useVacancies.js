@@ -2,6 +2,7 @@ import {useMemo, useState} from "react";
 
 export const useVacancies = (vacancies, query, filters) => {
     const [result, setResult] = useState(vacancies);
+    const [filtered, setFiltered] = useState([]);
 
     const searchedVacancies = useMemo(() => {
         const sorted = vacancies.filter(vacancy => vacancy.description.toLowerCase().includes(query.toLowerCase()));
@@ -10,29 +11,26 @@ export const useVacancies = (vacancies, query, filters) => {
     }, [vacancies, query]);
 
     const filteredVacancies = useMemo(() => {
-        const sorted = [];
-
         if (Object.keys(filters).length > 0) {
-            console.log('useVacancies - filter')
-            // console.log(Object.entries(filters)[0][0]);
-            // console.log(Object.entries(filters)[0][1][0].name);
+            console.log('useVacancies - filter');
+            // const sorted = searchedVacancies.filter(vacancy => vacancy.role.includes('PM'));
+            Object.entries(filters).forEach((filter) => {
+                console.log('Name: ' + filter[0]);
+                filter[1].forEach((item) => {
+                    console.log("Item: " + item.name);
+                    // console.log(searchedVacancies.filter(vacancy => vacancy[filter[0]].includes(item.name)));
+                    setFiltered([...filtered, searchedVacancies.filter(vacancy => vacancy[filter[0]].includes(item.name))]);
+                    console.log(filtered)
+                })
+                console.log('____________');
+            })
 
-            const sorted = searchedVacancies.filter(vacancy => vacancy.role.includes('PM'));
-            setResult(sorted);
-
-            // result = Object.entries(filters).map(filter =>
-            // vacancies.filter[0].includes(filter[1][0].name));
-
-            // result = Object.entries(filters).map(filter => result.filter(vacancy => {
-            //     console.log(filter[1][0].name);
-            //     return vacancy[filter[0]].includes(filter[1][0].name);
-            // }));
-
-            // return Object.entries(filters).map(filter => vacancies.filter[0].includes(filter[1][0].name));
+            setResult(filtered);
+            console.log('____________->!');
         }
 
-        return sorted;
-    }, [filters, query]);
+        return filtered;
+    }, [filters, vacancies]);
 
     return result;
 }

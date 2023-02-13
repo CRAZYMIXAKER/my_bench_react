@@ -59,7 +59,8 @@ const InformationListFilter = ({filter, setFilter}) => {
         }
     )
 
-    useMemo(() => {
+    const saveFilters = (e) => {
+        e.preventDefault();
         const newArray = Object.entries(filters).map(dropdown => {
             const result = dropdown[1].filter(item => item['checked'] === true);
             if (result.length > 0) {
@@ -75,13 +76,15 @@ const InformationListFilter = ({filter, setFilter}) => {
         } else {
             setFilter({...filter, filters: {}});
         }
-    }, [filters]);
+        console.log('All checked checkbox were added to filter');
+    };
 
     return (
         <div>
             <Filter
                 filters={filters}
                 setFilters={setFilters}
+                saveFilters={saveFilters}
             />
             <MyInput
                 value={filter.query}

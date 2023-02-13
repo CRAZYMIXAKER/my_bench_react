@@ -1,7 +1,7 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import MyInput from "../input/MyInput";
 
-const DropdownItemCheckbox = ({items, filterName, filters, setFilters}) => {
+const DropdownItemCheckbox = ({items, filterName, setFilters}) => {
     const updateCheckboxStatus = (checkboxName, checkboxStatus) => {
         setFilters(prevState => ({
             ...prevState,

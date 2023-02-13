@@ -2,7 +2,7 @@ import React from 'react';
 import {MdOutlineArrowDropDown} from "react-icons/md";
 import DropdownItemCheckbox from "../dropDown/DropdownItemCheckbox";
 
-const Filter = ({filters, setFilters}) => {
+const Filter = ({filters, setFilters, saveFilters}) => {
     return (
         <div>
             {Object.entries(filters).map(filtersItem => {
@@ -27,7 +27,12 @@ const Filter = ({filters, setFilters}) => {
                                 />
 
                                 <div className="buttons">
-                                    <button name="save" type="submit">Save</button>
+                                    <button
+                                        name="save"
+                                        type="submit"
+                                        onClick={saveFilters}
+                                    >Save
+                                    </button>
                                     <button
                                         name="clear"
                                         type="button"
