@@ -9,6 +9,7 @@ import Loader from "../components/UI/Loader/Loader";
 import {getPageCount} from "../utils/pages";
 import Pagination from "../components/UI/pagination/Pagination";
 import InformationListFilter from "../components/InformationListFilter";
+import './Available.scss';
 
 const Available = () => {
     const [vacancies, setVacancies] = useState([]);
@@ -43,7 +44,7 @@ const Available = () => {
         <div className="wrapper">
             <Header
                 btnTwoClassesName="_btn-black-border"
-                backgroundColor="transparent"
+                backgroundColor="white"
                 fontColor="rgb(105, 101, 114)"
                 logo={<svg width="145px" height="27" viewBox="0 0 144 27" fill="none"
                            xmlns="http://www.w3.org/2000/svg">
@@ -55,19 +56,26 @@ const Available = () => {
                         fill="#824FE7"></path>
                 </svg>}
             />
-            <InformationListFilter
-                filter={filter}
-                setFilter={setFilter}
-            />
-            {postError &&
-                <h1 style={{color: "red"}}>Error ${postError}</h1>
-            }
-            {isVacanciesLoading &&
-                <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}><Loader/></div>
-            }
-            <InformationList
-                vacancies={filteredAndSearchedVacancies.slice((page - 1) * limit, ((page - 1) * limit) + 30)}
-            />
+
+            <section className="wrapper-main">
+                <div className="wrapper-main-title">Available Resources</div>
+                <div className="main">
+                    <InformationListFilter
+                        filter={filter}
+                        setFilter={setFilter}
+                    />
+                    {postError &&
+                        <h1 style={{color: "red"}}>Error ${postError}</h1>
+                    }
+                    {isVacanciesLoading &&
+                        <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}><Loader/></div>
+                    }
+                    <InformationList
+                        vacancies={filteredAndSearchedVacancies.slice((page - 1) * limit, ((page - 1) * limit) + 30)}
+                    />
+                </div>
+            </section>
+
             <Pagination
                 page={page}
                 changePage={changePage}

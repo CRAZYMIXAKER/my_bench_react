@@ -2,17 +2,18 @@ import React from 'react';
 import {MdOutlineArrowDropDown} from "react-icons/md";
 import DropdownCheckbox from "../dropDown/DropdownCheckbox";
 import MyButton from "../button/MyButton";
+import './Filter.scss';
 
 const Filter = ({filters, setFilters, saveFilters}) => {
     return (
-        <div>
+        <div className="filter-panel-wrapper">
             {Object.entries(filters).map(filtersItem => {
                 const count = Object.values(filtersItem[1]).filter((filter) => filter.checked).length;
                 return (
                     <div key={filtersItem[0]} className="filter">
-                        <MyButton type="button" className="filter-header">
+                        <MyButton type="button" className={'filter-header ' + ((count > 0) ? '_checked' : '')}>
                             <span className="filter-header-title"> {filtersItem[0].toUpperCase()} </span>
-                            <span className="filter-header-count">
+                            <span className={'filter-header-count ' + ((count === 0) ? '_hide' : '')}>
                                 {count > 0 ? count : 0}
                             </span>
                             <MdOutlineArrowDropDown/>

@@ -1,3 +1,9 @@
 .information-wrapper {
   min-height: calc((100vh - 62px) - 113px);
+
+  padding: 23px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
 }

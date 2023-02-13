@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import ButtonMailTo from "./UI/button/ButtonMailTo";
-import '../styles/components/Footer.scss';
+import './Footer.scss';
 
 const Footer = () => {
     return (
