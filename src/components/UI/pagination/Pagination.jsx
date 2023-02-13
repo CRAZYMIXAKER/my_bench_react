@@ -1,6 +1,6 @@
 import React from 'react';
 import {getPagesArray} from "../../../utils/pages";
-import "../../../styles/components/UI/Pagination.scss"
+import "./Pagination.scss"
 
 const Pagination = ({totalPages, page, changePage}) => {
     let pagesArray = getPagesArray(totalPages);

@@ -1,9 +1,9 @@
 import React from 'react';
-import cl from '../../../styles/components/UI/Loader.module.css';
+import "./Loader.scss";
 
 const Loader = () => {
     return (
-        <div className={cl.loader}/>
+        <div className="loader"/>
     );
 };
 

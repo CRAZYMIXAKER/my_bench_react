@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import './Buttons.scss'
 
 const ButtonMailTo = ({className, mailto, children}) => {
     return (

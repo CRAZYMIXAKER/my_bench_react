@@ -133,7 +133,7 @@ const InformationListFilter = ({filter, setFilter}) => {
     };
 
     return (
-        <div>
+        <div className="filter-panel">
             <Filter
                 filters={filters}
                 setFilters={setFilters}
