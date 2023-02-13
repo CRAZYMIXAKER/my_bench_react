@@ -58,32 +58,24 @@ const InformationListFilter = ({filter, setFilter}) => {
             ]
         }
     )
+
     useMemo(() => {
-        // const newArray = filters.filter((n, i, a) => a.filter(m => m[0] === n[0]).length > 1);
         const newArray = Object.entries(filters).map(dropdown => {
             const result = dropdown[1].filter(item => item['checked'] === true);
-            // console.log(result.length);
             if (result.length > 0) {
-                console.log('asdasd');
                 return [dropdown[0], dropdown[1].filter(item => item['checked'] === true)];
             }
-            return ;
-        });
-        console.log(newArray);
+        }).filter(nnn => (nnn !== undefined));
+
         if (newArray.length > 0) {
-            // console.log(newArray)
             for (let i = 0; i < newArray.length; i++) {
-                // console.log(newArray[i][1]);
-                // setFilteredArray({...filteredArray, [newArray[i][0]]: newArray[i][1]});
-                // console.log(newArray[i][0]);
-                // console.log(newArray[i][1]);
+                setFilteredArray({...filteredArray, [newArray[i][0]]: newArray[i][1]});
             }
-            // console.log('sss');
-            // console.log(sss);
-            // setFilter({...filter, filters: newArray});
+            setFilter({...filter, filters: filteredArray});
+        } else {
+            setFilter({...filter, filters: {}});
         }
     }, [filters]);
-    // console.log(filters);
 
     return (
         <div>
