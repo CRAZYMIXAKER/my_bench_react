@@ -6,4 +6,132 @@
   flex-direction: column;
   -webkit-box-align: center;
   align-items: center;
+
+  .table {
+    border-collapse: separate;
+    border-spacing: 0;
+    display: table;
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+
+    &-header {
+      display: table-row-group;
+
+      tr {
+        background-color: rgb(246, 246, 247);
+        border-bottom: none;
+        border-image: initial;
+        border-left: 1px solid rgba(0, 0, 0, 0.12);
+        border-radius: 12px 12px 0 0;
+        border-right: 1px solid rgba(0, 0, 0, 0.12);
+        border-top: 1px solid rgba(0, 0, 0, 0.12);
+        display: table-row;
+        font-size: 14px;
+        font-weight: 600;
+        grid-template-columns: 30px repeat(2, 1fr);
+        line-height: 120%;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+
+        td {
+          background-color: rgb(246, 246, 247);
+          border-top: 1px solid rgba(0, 0, 0, 0.12);
+          border-top: 1px solid rgba(0, 0, 0, 0.12);
+          color: rgb(105, 101, 114);
+          font-family: Inter, sans-serif;
+          font-size: 14px;
+          font-weight: 600;
+          gap: 5px;
+          line-height: 20px;
+          padding: 14px 10px;
+          text-transform: uppercase;
+          white-space: nowrap;
+          width: auto;
+
+          &:first-child {
+            max-width: 10px;
+            border-left: 1px solid rgba(0, 0, 0, 0.12);
+            border-top-left-radius: 10px;
+            padding: 14px 4px;
+          }
+
+          .table-td-main {
+            -webkit-box-align: center;
+            align-items: center;
+            display: inline-flex;
+          }
+
+          & > span {
+            color: rgb(105, 101, 114);
+            font-family: Inter, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            gap: 5px;
+            line-height: 20px;
+            padding: 18px 12px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            width: auto;
+          }
+
+          button {
+            -webkit-box-align: center;
+            align-items: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            font-family: Inter, sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            padding: 0;
+
+            span {
+
+            }
+          }
+        }
+      }
+    }
+
+    &-body {
+      display: table-row-group;
+      max-height: none;
+      overflow-y: auto;
+
+      tr {
+        background-color: rgb(255, 255, 255);
+        border: none;
+        display: table-row;
+        grid-template-columns: 30px repeat(2, 1fr);
+        padding: 0;
+
+        td {
+          background-color: rgb(255, 255, 255);
+          border-top: 1px solid rgba(0, 0, 0, 0.12);
+          color: rgb(14, 13, 16);
+          cursor: pointer;
+          font-family: Inter, sans-serif;
+          font-size: 14px;
+          font-weight: 400;
+          grid-area: 1 / 1 / 9 / 2;
+          line-height: 160%;
+          padding: 13px 0 13px 8px;
+          vertical-align: top;
+
+          &:first-child {
+            border-left: 1px solid rgba(0, 0, 0, 0.12);
+          }
+
+          &:last-child {
+            border-bottom: none;
+            border-right: 1px solid rgba(0, 0, 0, 0.12);
+          }
+        }
+      }
+    }
+  }
 }
