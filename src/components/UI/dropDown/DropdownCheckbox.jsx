@@ -13,8 +13,6 @@ const DropdownCheckbox = ({items, filterName, setFilters}) => {
         }))
     }
 
-    // console.log("ccc" + filters + "ddd");
-
     return (
         <div className="dropdown">
             {items.map((item, index) => {

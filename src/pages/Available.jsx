@@ -10,6 +10,7 @@ import {getPageCount} from "../utils/pages";
 import Pagination from "../components/UI/pagination/Pagination";
 import InformationListFilter from "../components/InformationListFilter";
 import './Available.scss';
+import FilterChecked from "../components/UI/filter-checked/FilterChecked";
 
 const Available = () => {
     const [vacancies, setVacancies] = useState([]);
@@ -18,8 +19,6 @@ const Available = () => {
     const [limit, setLimit] = useState(30);
     const [page, setPage] = useState(1);
     const filteredAndSearchedVacancies = useVacancies(vacancies, filter.query, filter.filters);
-    // console.log(filteredAndSearchedVacancies);
-    // console.log(filter.filters);
 
     const [fetchVacancies, isVacanciesLoading, postError] = useFetching(async () => {
         const response = await VacancyService.getAll();
@@ -64,6 +63,7 @@ const Available = () => {
                         filter={filter}
                         setFilter={setFilter}
                     />
+                    <FilterChecked filterChecked={filter.filters}/>
                     {postError &&
                         <h1 style={{color: "red"}}>Error ${postError}</h1>
                     }

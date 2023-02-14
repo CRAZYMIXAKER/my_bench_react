@@ -1,0 +1,74 @@
+.filter-checked {
+  -webkit-box-pack: justify;
+  align-items: flex-start;
+  column-gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 16px 23px 16px;
+  padding: 0 15px 0 9px;
+
+  &-wrapper {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+  }
+
+  &-svg {
+    flex: 0 0 18px;
+  }
+
+  &-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+
+    .item {
+      -webkit-box-align: center;
+      -webkit-box-pack: justify;
+      align-items: center;
+      background-color: rgb(0, 0, 0);
+      border-radius: 8px;
+      border: 1px solid rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+      display: flex;
+      font-size: 14px;
+      font-weight: 400;
+      gap: 4px;
+      justify-content: space-between;
+      line-height: 1;
+      min-width: 84px;
+      padding: 2px 12px;
+
+      &-title {
+        text-transform: capitalize;
+      }
+
+      &-close {
+        -webkit-box-align: center;
+        align-items: center;
+        cursor: pointer;
+        display: inline-flex;
+        text-transform: capitalize;
+
+        svg {
+          fill: rgb(255, 255, 255);
+          font-size: 24px;
+          width: 18px;
+        }
+      }
+    }
+  }
+
+  &-clear {
+    background: none;
+    border: none;
+    color: rgb(124, 106, 183);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    min-width: max-content;
+    padding: 0;
+  }
+}

@@ -6,6 +6,7 @@
   column-gap: 10px;
   display: flex;
   justify-content: space-between;
+  margin: 0 0 23px 0;
   padding: 11px 20px;
   z-index: 3;
 
@@ -113,7 +114,7 @@
   &-dropdown {
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
-    box-shadow: rgb(91 104 113 / 24%) 0px 12px 24px;
+    box-shadow: rgb(91 104 113 / 24%) 0 12px 24px;
     margin-top: 19px;
     padding: 24px 10px;
     position: absolute;
@@ -122,5 +123,4 @@
     z-index: 2;
     display: none;
   }
-
 }
