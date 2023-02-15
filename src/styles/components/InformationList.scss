@@ -57,6 +57,11 @@
             padding: 14px 4px;
           }
 
+          &:last-child {
+            border-top-right-radius: 10px;
+            border-right: 1px solid rgba(0, 0, 0, 0.12);
+          }
+
           .table-td-main {
             -webkit-box-align: center;
             align-items: center;
@@ -88,10 +93,6 @@
             font-weight: 400;
             line-height: 20px;
             padding: 0;
-
-            span {
-
-            }
           }
         }
       }
@@ -109,6 +110,18 @@
         grid-template-columns: 30px repeat(2, 1fr);
         padding: 0;
 
+        &:last-child td {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+
+          &:first-child {
+            border-bottom-left-radius: 10px;
+          }
+
+          &:last-child {
+            border-bottom-right-radius: 10px;
+          }
+        }
+
         td {
           background-color: rgb(255, 255, 255);
           border-top: 1px solid rgba(0, 0, 0, 0.12);
@@ -119,16 +132,57 @@
           font-weight: 400;
           grid-area: 1 / 1 / 9 / 2;
           line-height: 160%;
-          padding: 13px 0 13px 8px;
           vertical-align: top;
+          padding: 16px 10px;
 
           &:first-child {
+            padding: 13px 0 13px 8px;
             border-left: 1px solid rgba(0, 0, 0, 0.12);
           }
 
           &:last-child {
-            border-bottom: none;
             border-right: 1px solid rgba(0, 0, 0, 0.12);
+          }
+
+          .main-stack {
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            display: -webkit-box;
+            height: auto;
+            margin: -4px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-word;
+
+            &-item {
+              padding: 6px 4px;
+              position: relative;
+              display: inline-flex;
+
+              span {
+                -webkit-box-align: center;
+                -webkit-box-pack: center;
+                align-items: center;
+                background-color: rgb(231, 221, 252);
+                border-radius: 8px;
+                color: rgb(73, 60, 120);
+                column-gap: 4px;
+                display: inline-flex;
+                font-size: 14px;
+                font-weight: 400;
+                justify-content: center;
+                line-height: 20px;
+                min-width: 67px;
+                padding: 2px 12px;
+              }
+            }
+          }
+
+          svg {
+            fill: rgb(105, 101, 114);
+            font-size: 18px;
+            transition: transform 0.15s ease-in-out 0s;
+            width: 24px;
           }
         }
       }

@@ -18,19 +18,19 @@ const InformationList = ({vacancies}) => {
             <table role="table" className="table">
                 <tbody className="table-header">
                 <tr role="row">
-                    <td colSpan="1">
+                    <td colSpan="1" width="10px">
                         <div className="table-td-main"><span></span></div>
                     </td>
-                    <td colSpan="1">
+                    <td colSpan="1" width="121px">
                         <div className="table-td-main"><span>Role</span></div>
                     </td>
-                    <td colSpan="1">
+                    <td colSpan="1" width="121px">
                         <div className="table-td-main"><span>Seniority</span></div>
                     </td>
-                    <td colSpan="1">
+                    <td colSpan="1" width="270px">
                         <div className="table-td-main"><span>Main Stack</span></div>
                     </td>
-                    <td colSpan="1">
+                    <td colSpan="1" width="168px">
                         <div className="table-td-main">
                             <button>
                                 <span>Rate</span>
@@ -40,20 +40,20 @@ const InformationList = ({vacancies}) => {
                             </button>
                         </div>
                     </td>
-                    <td colSpan="1">
+                    <td colSpan="1" width="auto">
                         <div className="table-td-main"><span>English</span></div>
                     </td>
-                    <td colSpan="1">
+                    <td colSpan="1" width="auto">
                         <div className="table-td-main"><span>Location</span></div>
                     </td>
-                    <td colSpan="1">
+                    <td colSpan="1" width="auto">
                         <div className="table-td-main">
                             <button><span>Posted</span>
                                 <span><MdOutlineArrowDropDown/></span>
                             </button>
                         </div>
                     </td>
-                    <td colSpan="1">
+                    <td colSpan="1" width="40px">
                         <div className="table-td-main"><span></span></div>
                     </td>
                 </tr>
