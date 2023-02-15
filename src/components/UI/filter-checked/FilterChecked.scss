@@ -15,6 +15,11 @@
 
   &-svg {
     flex: 0 0 18px;
+    height: 24px;
+
+    svg {
+      font-size: 24px;
+    }
   }
 
   &-items {
