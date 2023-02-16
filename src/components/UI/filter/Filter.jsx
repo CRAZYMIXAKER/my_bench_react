@@ -12,11 +12,25 @@ const Filter = ({filter, filters, setFilters, saveFilters}) => {
         }
         return setDropdownFilter(filterName);
     }
+
+    const clearFilter = (filterName) => {
+        console.log('Clear Filter');
+        console.log(filterName);
+        setFilters(prevState => ({
+            ...prevState,
+            [filterName]: prevState[filterName].map(checkbox => checkbox.checked === true ? {
+                    ...checkbox,
+                    checked: false
+                } : checkbox
+            )
+        }))
+    }
+
     return (
         <div className="filter-panel-wrapper">
             {Object.entries(filters).map(filtersItem => {
                 const count = filter[filtersItem[0]] && Object.values(filter[filtersItem[0]]).filter((filter) => filter.checked).length;
-
+                const clearDisableStatus = ((Object.values(filtersItem[1]).filter((filter) => filter.checked).length) <= 0);
                 return (
                     <div key={filtersItem[0]} className="filter">
                         <MyButton type="button"
@@ -45,10 +59,11 @@ const Filter = ({filter, filters, setFilters, saveFilters}) => {
                                     >Save
                                     </MyButton>
                                     <MyButton
+                                        disabled={clearDisableStatus}
                                         className="filter-dropdown-button _clear"
                                         name="clear"
                                         type="button"
-                                        // onClick={() => clearFilter(form[0])}
+                                        onClick={() => clearFilter(filtersItem[0])}
                                     >
                                         Clear
                                     </MyButton>

@@ -2,7 +2,7 @@ import React, {useMemo, useState} from 'react';
 import MyInput from "./UI/input/MyInput";
 import Filter from "./UI/filter/Filter";
 
-const InformationListFilter = ({filter, setFilter}) => {
+const FilterPanel = ({filter, setFilter}) => {
     const [filters, setFilters] = useState({
             "role": [
                 {
@@ -148,4 +148,4 @@ const InformationListFilter = ({filter, setFilter}) => {
     );
 };
 
-export default InformationListFilter;
+export default FilterPanel;
