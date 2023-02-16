@@ -2,7 +2,7 @@ import React from 'react';
 import {MdOutlineFilterList, MdClose} from "react-icons/md";
 import './FilterChecked.scss';
 
-const FilterChecked = ({filterChecked, setFilterChecked}) => {
+const FilterChecked = ({filter, setFilter}) => {
     const deleteCheckedFilter = (filterName, checkedName) => {
         console.log('Delete');
         // setFilterChecked(
@@ -16,8 +16,7 @@ const FilterChecked = ({filterChecked, setFilterChecked}) => {
 
     const clearCheckedFilter = () => {
         console.log('CLEAR');
-        // setFilterChecked({filters: {}});
-        // setFilterChecked(Object.values(filterChecked).filter(checkedItem => checkedItem.length === 0));
+        setFilter({...filter, filters: {}});
     }
 
     return (
@@ -27,12 +26,13 @@ const FilterChecked = ({filterChecked, setFilterChecked}) => {
                     <MdOutlineFilterList/>
                 </div>
                 <div className="filter-checked-items">
-                    {Object.entries(filterChecked).map(filter => {
+                    {Object.entries(filter.filters).map(filter => {
                         return (
                             filter[1].map(checked => {
                                 return (
-                                    <button className="item"
-                                            onClick={(e) => deleteCheckedFilter(filter[0], checked.name)}>
+                                    <button
+                                        className="item"
+                                        onClick={(e) => deleteCheckedFilter(filter[0], checked.name)}>
                                         <span className="item-title">{checked.name}</span>
                                         <span className="item-close">
                                         <MdClose/>

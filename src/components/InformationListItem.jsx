@@ -3,7 +3,7 @@ import {MdFavoriteBorder, MdExpandMore} from "react-icons/md";
 
 const InformationListItem = (props) => {
     return (
-        <tr role="row">
+        <tr role="row" key={props.post.id}>
             <td role="cell" width="10px">
                 <span><MdExpandMore/></span>
             </td>
