@@ -4,7 +4,7 @@ import DropdownCheckbox from "../dropDown/DropdownCheckbox";
 import MyButton from "../button/MyButton";
 import './Filter.scss';
 
-const Filter = ({filters, setFilters, saveFilters}) => {
+const Filter = ({filter, filters, setFilters, saveFilters}) => {
     const [dropFilter, setDropdownFilter] = useState('');
     const showHideDropdownFilter = (filterName) => {
         if (dropFilter === filterName) {
@@ -15,16 +15,15 @@ const Filter = ({filters, setFilters, saveFilters}) => {
     return (
         <div className="filter-panel-wrapper">
             {Object.entries(filters).map(filtersItem => {
-                const count = Object.values(filtersItem[1]).filter((filter) => filter.checked).length;
+                const count = filter[filtersItem[0]] && Object.values(filter[filtersItem[0]]).filter((filter) => filter.checked).length;
+
                 return (
                     <div key={filtersItem[0]} className="filter">
                         <MyButton type="button"
                                   onClick={() => showHideDropdownFilter(filtersItem[0])}
                                   className={'filter-header ' + ((count > 0) ? '_checked' : '')}>
                             <span className="filter-header-title"> {filtersItem[0].toUpperCase()} </span>
-                            <span className={'filter-header-count ' + ((count === 0) ? '_hide' : '')}>
-                                {count > 0 ? count : 0}
-                            </span>
+                            {count && <span className="filter-header-count"> {count} </span>}
                             <MdOutlineArrowDropDown/>
                         </MyButton>
 
@@ -39,14 +38,14 @@ const Filter = ({filters, setFilters, saveFilters}) => {
 
                                 <div className="filter-dropdown-buttons">
                                     <MyButton
-                                        class="filter-dropdown-button _save"
+                                        className="filter-dropdown-button _save"
                                         name="save"
                                         type="button"
                                         onClick={saveFilters}
                                     >Save
                                     </MyButton>
                                     <MyButton
-                                        class="filter-dropdown-button _clear"
+                                        className="filter-dropdown-button _clear"
                                         name="clear"
                                         type="button"
                                         // onClick={() => clearFilter(form[0])}

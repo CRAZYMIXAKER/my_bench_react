@@ -134,6 +134,7 @@ const InformationListFilter = ({filter, setFilter}) => {
     return (
         <div className="filter-panel">
             <Filter
+                filter={filter.filters}
                 filters={filters}
                 setFilters={setFilters}
                 saveFilters={saveFilters}

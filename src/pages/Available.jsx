@@ -63,7 +63,7 @@ const Available = () => {
                         filter={filter}
                         setFilter={setFilter}
                     />
-                    <FilterChecked filterChecked={filter.filters}/>
+                    <FilterChecked filterChecked={filter.filters} setFilterChecked={setFilter}/>
                     {postError &&
                         <h1 style={{color: "red"}}>Error ${postError}</h1>
                     }
