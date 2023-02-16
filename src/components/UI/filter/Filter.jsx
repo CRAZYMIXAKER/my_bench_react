@@ -5,12 +5,12 @@ import MyButton from "../button/MyButton";
 import './Filter.scss';
 
 const Filter = ({filters, setFilters, saveFilters}) => {
-    const [dropFilter, setDropFilter] = useState('');
-    const showHideDropFilter = (filterName) => {
+    const [dropFilter, setDropdownFilter] = useState('');
+    const showHideDropdownFilter = (filterName) => {
         if (dropFilter === filterName) {
-            return setDropFilter('');
+            return setDropdownFilter('');
         }
-        return setDropFilter(filterName);
+        return setDropdownFilter(filterName);
     }
     return (
         <div className="filter-panel-wrapper">
@@ -19,7 +19,7 @@ const Filter = ({filters, setFilters, saveFilters}) => {
                 return (
                     <div key={filtersItem[0]} className="filter">
                         <MyButton type="button"
-                                  onClick={() => showHideDropFilter(filtersItem[0])}
+                                  onClick={() => showHideDropdownFilter(filtersItem[0])}
                                   className={'filter-header ' + ((count > 0) ? '_checked' : '')}>
                             <span className="filter-header-title"> {filtersItem[0].toUpperCase()} </span>
                             <span className={'filter-header-count ' + ((count === 0) ? '_hide' : '')}>
