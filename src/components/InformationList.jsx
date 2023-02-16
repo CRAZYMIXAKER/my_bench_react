@@ -2,8 +2,9 @@ import InformationListItem from "./InformationListItem";
 import '../styles/components/InformationList.scss'
 import {MdOutlineArrowDropDown} from "react-icons/md";
 import React from "react";
+import Pagination from "./UI/pagination/Pagination";
 
-const InformationList = ({vacancies}) => {
+const InformationList = ({vacancies, page, changePage, totalPages, nextPage, prevPage}) => {
 
     if (!vacancies.length) {
         return (
@@ -62,6 +63,14 @@ const InformationList = ({vacancies}) => {
                 {vacancies.map(vacancy => <InformationListItem post={vacancy} key={vacancy.id}/>)}
                 </tbody>
             </table>
+
+            <Pagination
+                page={page}
+                changePage={changePage}
+                totalPages={totalPages}
+                nextPage={nextPage}
+                prevPage={prevPage}
+            />
         </main>
     );
 };

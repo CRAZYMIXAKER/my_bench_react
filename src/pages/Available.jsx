@@ -8,7 +8,7 @@ import {useVacancies} from "../hooks/useVacancies";
 import Loader from "../components/UI/Loader/Loader";
 import {getPageCount} from "../utils/pages";
 import Pagination from "../components/UI/pagination/Pagination";
-import InformationListFilter from "../components/InformationListFilter";
+import FilterPanel from "../components/FilterPanel";
 import './Available.scss';
 import FilterChecked from "../components/UI/filter-checked/FilterChecked";
 
@@ -26,8 +26,31 @@ const Available = () => {
         setTotalPages(getPageCount(vacancies.length, limit));
     })
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth"
+        });
+    }
+
     const changePage = (page) => {
-        setPage(page)
+        setPage(page);
+        scrollToTop();
+    }
+
+    const prevPage = (page) => {
+        if (page !== 1) {
+            setPage(page - 1);
+            scrollToTop();
+        }
+    }
+
+    const nextPage = (page) => {
+        if (page < totalPages) {
+            setPage(page + 1);
+            scrollToTop();
+        }
     }
 
     useMemo(() => {
@@ -59,7 +82,7 @@ const Available = () => {
             <section className="wrapper-main">
                 <div className="wrapper-main-title">Available Resources</div>
                 <div className="main">
-                    <InformationListFilter
+                    <FilterPanel
                         filter={filter}
                         setFilter={setFilter}
                     />
@@ -72,15 +95,14 @@ const Available = () => {
                     }
                     <InformationList
                         vacancies={filteredAndSearchedVacancies.slice((page - 1) * limit, ((page - 1) * limit) + 30)}
+                        page={page}
+                        changePage={changePage}
+                        totalPages={totalPages}
+                        nextPage={nextPage}
+                        prevPage={prevPage}
                     />
                 </div>
             </section>
-
-            <Pagination
-                page={page}
-                changePage={changePage}
-                totalPages={totalPages}
-            />
             <Footer/>
         </div>
     );
