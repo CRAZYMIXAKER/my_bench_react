@@ -121,6 +121,29 @@
     transform: none;
     width: 280px;
     z-index: 2;
-    //display: none;
+
+    &-buttons {
+      -webkit-box-pack: justify;
+      column-gap: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-button {
+      background: none;
+      border: none;
+      color: rgb(124, 106, 183);
+      cursor: pointer;
+      flex: 1 1 110px;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 20px;
+      padding: 0;
+
+      &:disabled {
+        color: rgb(188, 185, 195);
+        cursor: auto;
+      }
+    }
   }
 }

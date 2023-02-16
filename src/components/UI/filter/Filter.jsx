@@ -37,14 +37,16 @@ const Filter = ({filters, setFilters, saveFilters}) => {
                                     setFilters={setFilters}
                                 />
 
-                                <div className="buttons">
+                                <div className="filter-dropdown-buttons">
                                     <MyButton
+                                        class="filter-dropdown-button _save"
                                         name="save"
-                                        type="submit"
+                                        type="button"
                                         onClick={saveFilters}
                                     >Save
                                     </MyButton>
                                     <MyButton
+                                        class="filter-dropdown-button _clear"
                                         name="clear"
                                         type="button"
                                         // onClick={() => clearFilter(form[0])}

@@ -13,6 +13,13 @@ const FilterChecked = ({filterChecked, setFilterChecked}) => {
         //     )
         // )
     }
+
+    const clearCheckedFilter = () => {
+        console.log('CLEAR');
+        // setFilterChecked({filters: {}});
+        // setFilterChecked(Object.values(filterChecked).filter(checkedItem => checkedItem.length === 0));
+    }
+
     return (
         <div className="filter-checked">
             <div className="filter-checked-wrapper">
@@ -36,7 +43,7 @@ const FilterChecked = ({filterChecked, setFilterChecked}) => {
                     })}
                 </div>
             </div>
-            <button className="filter-checked-clear">
+            <button className="filter-checked-clear" onClick={clearCheckedFilter}>
                 <div>Clear Filters</div>
             </button>
         </div>

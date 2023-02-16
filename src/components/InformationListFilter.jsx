@@ -113,7 +113,6 @@ const InformationListFilter = ({filter, setFilter}) => {
     )
 
     const saveFilters = (e) => {
-        e.preventDefault();
         const checkedArray = Object.entries(filters).map(dropdown => {
             const result = dropdown[1].filter(item => item['checked'] === true);
             if (result.length > 0) {

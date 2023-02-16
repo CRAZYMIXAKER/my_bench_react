@@ -1,5 +1,6 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import MyInput from "../input/MyInput";
+import './DropdownCheckbox.scss';
 
 const DropdownCheckbox = ({items, filterName, setFilters}) => {
     const updateCheckboxStatus = (checkboxName, checkboxStatus) => {
