@@ -4,18 +4,16 @@ import './FilterChecked.scss';
 
 const FilterChecked = ({filter, setFilter}) => {
     const deleteCheckedFilter = (filterName, checkedName) => {
-        console.log('Delete');
-        // setFilterChecked(
-        //     Object.entries(filterChecked).map(prevState => ({
-        //             ...prevState,
-        //             [filterName]: prevState[filterName].filter(p => p.name !== checkedName)
-        //         })
-        //     )
-        // )
+        setFilter(prevState => ({
+            ...prevState,
+            filters: {
+                ...filter.filters,
+                [filterName]: filter.filters[filterName].filter(checkbox => checkbox.name !== checkedName)
+            }
+        }))
     }
 
     const clearCheckedFilter = () => {
-        console.log('CLEAR');
         setFilter({...filter, filters: {}});
     }
 
@@ -32,7 +30,7 @@ const FilterChecked = ({filter, setFilter}) => {
                                 return (
                                     <button
                                         className="item"
-                                        onClick={(e) => deleteCheckedFilter(filter[0], checked.name)}>
+                                        onClick={() => deleteCheckedFilter(filter[0], checked.name)}>
                                         <span className="item-title">{checked.name}</span>
                                         <span className="item-close">
                                         <MdClose/>
