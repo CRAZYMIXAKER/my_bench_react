@@ -93,9 +93,9 @@ const InformationListItem = ({vacancy, showHideRowTable, dropdownRow}) => {
                     <td colSpan="3">
                         <div className="additional-information-contacts">
                             {/*<div>@{vacancy.telegram}</div>*/}
-                            <a href="https://t.me/slobodapartner" target="_blank" className="contacts-link">Telegram</a>
+                            <a href="https://t.me/mixaker" target="_blank" className="contacts-link">Telegram</a>
                             {/*<div>{vacancy.email}</div>*/}
-                            <a href="mailto:y.tretyak@sloboda-studio.com" className="contacts-link">Email</a>
+                            <a href="mailto:zombisuki@gmail.com" className="contacts-link">Email</a>
                         </div>
                     </td>
                 </tr>)
