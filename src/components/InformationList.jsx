@@ -1,10 +1,17 @@
 import InformationListItem from "./InformationListItem";
 import '../styles/components/InformationList.scss'
 import {MdOutlineArrowDropDown} from "react-icons/md";
-import React from "react";
+import React, {useState} from "react";
 import Pagination from "./UI/pagination/Pagination";
 
 const InformationList = ({vacancies, page, changePage, totalPages, nextPage, prevPage}) => {
+    const [dropdownRow, setDropdownRow] = useState(0);
+    const showHideRowTable = (rowId) => {
+        if (dropdownRow === rowId) {
+            return setDropdownRow(0);
+        }
+        return setDropdownRow(rowId);
+    }
 
     if (!vacancies.length) {
         return (
@@ -60,7 +67,13 @@ const InformationList = ({vacancies, page, changePage, totalPages, nextPage, pre
                 </tr>
                 </tbody>
                 <tbody className="table-body" role="rowgroup">
-                {vacancies.map(vacancy => <InformationListItem post={vacancy} key={vacancy.id}/>)}
+                {vacancies.map(vacancy =>
+                    <InformationListItem
+                        vacancy={vacancy}
+                        showHideRowTable={showHideRowTable}
+                        dropdownRow={dropdownRow}
+                        key={vacancy.id}
+                    />)}
                 </tbody>
             </table>
 
