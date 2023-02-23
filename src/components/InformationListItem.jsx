@@ -1,8 +1,12 @@
-import React, {useState} from 'react';
-import {MdFavoriteBorder, MdExpandMore} from "react-icons/md";
+import React from 'react';
+import {
+    MdFavoriteBorder,
+    MdExpandMore,
+    MdOutlineLocationOn
+} from "react-icons/md";
 
 const InformationListItem = ({vacancy, showHideRowTable, dropdownRow}) => {
-
+    const additionalClass = (dropdownRow === vacancy.id) ? '_revert' : '';
     return (
         <>
             <tr
@@ -11,7 +15,7 @@ const InformationListItem = ({vacancy, showHideRowTable, dropdownRow}) => {
                 onClick={() => showHideRowTable(vacancy.id)}
             >
                 <td role="cell" width="10px">
-                    <span><MdExpandMore/></span>
+                    <span> <MdExpandMore className={additionalClass}/></span>
                 </td>
                 <td data-title="Role" width="121px">
                     <span>{vacancy.role}</span>
@@ -44,46 +48,54 @@ const InformationListItem = ({vacancy, showHideRowTable, dropdownRow}) => {
                     <span>{vacancy.posted}</span>
                 </td>
                 <td data-title="Favorite" width="40px">
-                <span>
-                    <MdFavoriteBorder/>
-                </span>
+                    <span>
+                        <MdFavoriteBorder/>
+                    </span>
                 </td>
             </tr>
 
             {(dropdownRow === vacancy.id) &&
-                (<tr className="">
+                (<tr className="additional-information">
                     <td colSpan="4">
-                        <div className="">
-                            <h4> Description </h4>
-                            <pre className="">
-                            {vacancy.description}
-                        </pre>
+                        <div className="additional-information-description">
+                            <h4 className="additional-information-title"> Description </h4>
+                            <pre>
+                                {/*{vacancy.description}*/}
+                                9 years of commercial experience in software development
+                                Experience with working on an ICO project (cryptocurrency exchange)
+                                Experience as CTO and Tech Lead
+                                Programming Technologies:
+                                Python, Flask, PHP, Laravel, CodeIgniter, Kohana, Javascript, Node, React, Angular, Vue.js, jQuery, HTML, CSS3
+                            </pre>
                         </div>
-                        <div className="">
-                            <a href="/company/sloboda-studio"> Company Name: {vacancy.company} </a>
+                        <div className="additional-information-company">
+                            <a href="/company/sloboda-studio">
+                                Mixaker interprice
+                                {/*{vacancy.company} */}
+                            </a>
                         </div>
                     </td>
                     <td>
-                        <div className="">
-                            <h4 className="">Company Location</h4>
-                            <div className="">
-                                {/*svg*/}
+                        <div className="additional-information-location">
+                            <h4 className="additional-information-title">Company Location</h4>
+                            <div className="location-body">
+                                <MdOutlineLocationOn/>
                                 <span>{vacancy["company-location"]}</span>
                             </div>
                         </div>
                     </td>
                     <td>
-                        <div className="">
-                            <h4 className="">Workload</h4>
+                        <div className="additional-information-workload">
+                            <h4 className="additional-information-title">Workload</h4>
                             <span>{vacancy.workload}</span>
                         </div>
                     </td>
                     <td colSpan="3">
-                        <div className="">
+                        <div className="additional-information-contacts">
                             {/*<div>@{vacancy.telegram}</div>*/}
-                            <a href="https://t.me/slobodapartner" target="_blank" className="">Telegram</a>
+                            <a href="https://t.me/slobodapartner" target="_blank" className="contacts-link">Telegram</a>
                             {/*<div>{vacancy.email}</div>*/}
-                            <a href="mailto:y.tretyak@sloboda-studio.com" className="">Email</a>
+                            <a href="mailto:y.tretyak@sloboda-studio.com" className="contacts-link">Email</a>
                         </div>
                     </td>
                 </tr>)

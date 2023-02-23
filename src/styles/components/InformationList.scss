@@ -168,6 +168,12 @@
             border-right: 1px solid rgba(0, 0, 0, 0.12);
           }
 
+          &:nth-child(5),
+          &:nth-child(8) {
+            padding-left: 22px;
+            padding-right: 10px;
+          }
+
           .main-stack {
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
@@ -207,6 +213,131 @@
             font-size: 20px;
             transition: transform 0.15s ease-in-out 0s;
             width: 24px;
+
+            &._revert {
+              transform: rotate(180deg);
+            }
+          }
+        }
+
+        &.additional-information {
+          border-left: 1px solid rgba(0, 0, 0, 0.12);
+          border-right: 1px solid rgba(0, 0, 0, 0.12);
+          padding: 10px 0;
+
+          td {
+            background-color: rgb(255, 255, 255);
+            border-top: 0;
+            cursor: unset;
+            padding: 12px 22px 28px 22px;
+            vertical-align: top;
+
+            &:first-child {
+              border-left: 1px solid rgba(0, 0, 0, 0.12);
+              padding-left: 37px;
+            }
+
+            &:last-child {
+              border-right: 1px solid rgba(0, 0, 0, 0.12);
+            }
+
+            &:nth-child(2) {
+              padding: 12px 10px 12px 10px;
+            }
+
+            .additional-information {
+              &-title {
+                font-family: "DM Sans", sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 20px;
+              }
+
+              &-description {
+                pre {
+                  font-family: "DM Sans", sans-serif;
+                  font-size: 14px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: 20px;
+                  margin: 0 0 14px 0;
+                  max-width: 534px;
+                  white-space: pre-line;
+                  width: 100%;
+                  word-break: break-word;
+                }
+              }
+
+              &-company {
+                color: rgb(130, 79, 231);
+                cursor: pointer;
+                display: inline-block;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 24px;
+                margin-top: 24px;
+
+                a {
+                  color: rgb(151, 131, 208);
+                  text-decoration: none;
+                }
+              }
+
+              &-location {
+                .location-body {
+                  display: flex;
+                  gap: 5px;
+
+                  svg {
+                    fill: rgb(14, 13, 16);
+                  }
+
+                  span {
+                    font-family: "DM Sans", sans-serif;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                  }
+                }
+              }
+
+              &-workload {
+                span {
+                  font-family: "DM Sans", sans-serif;
+                  font-size: 14px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: 20px;
+                }
+              }
+
+              &-contacts {
+                align-self: self-start;
+                display: flex;
+                gap: 8px;
+                justify-content: right;
+
+                .contacts-link {
+                  background-color: rgb(246, 246, 247);
+                  border-radius: 10px;
+                  color: rgb(0, 0, 0);
+                  display: inline-block;
+                  font-family: "DM Sans", sans-serif;
+                  font-size: 14px;
+                  font-style: normal;
+                  font-weight: 700;
+                  line-height: 20px;
+                  padding: 10px 16px;
+                  transition: background-color 0.35s ease-in-out 0s;
+
+                  &:hover {
+                    background-color: rgba(14, 13, 16, 0.1);
+                    text-decoration: none;
+                  }
+                }
+              }
+            }
           }
         }
       }
